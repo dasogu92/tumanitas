@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 flex flex-col items-center justify-start p-6 space-y-6 font-poppins text-brand-red">
-      <header className="relative w-full max-w-md mx-auto flex justify-between items-center px-2 py-4">
+      <header className="relative z-40 w-full max-w-md mx-auto flex justify-between items-center px-2 py-4">
         <img src="/logo-texto.svg" alt="Logo texto" className="w-40 h-auto" />
         
         <button
@@ -25,40 +25,43 @@ export default function Home() {
         >
           <img src="/burger.svg" alt="Menú" className="w-7 h-7" />
         </button>
+      </header>
 
-        {/* Dropdown */}
-        {open && (
-          <div ref={menuRef} className="absolute right-2 top-14 w-56 bg-white rounded-2xl shadow-soft border border-gray-100 overflow-hidden">
-            <div className="px-4 py-3 border-b border-gray-100">
-              <div className="flex items-center gap-3">
-                <img src="/trabajador.svg" alt="Avatar" className="w-9 h-9 rounded-full ring-1 ring-gray-200" />
-                <div>
-                  <p className="text-sm font-semibold text-gray-800">Usuario</p>
-                  <p className="text-xs text-gray-500">usuario@correo.com</p>
-                </div>
+      {/* Dropdown fijo sobre el contenido */}
+      {open && (
+        <div
+          ref={menuRef}
+          className="fixed right-4 top-20 z-50 w-56 bg-white rounded-2xl shadow-soft border border-gray-100 overflow-hidden"
+        >
+          <div className="px-4 py-3 border-b border-gray-100">
+            <div className="flex items-center gap-3">
+              <img src="/trabajador.svg" alt="Avatar" className="w-9 h-9 rounded-full ring-1 ring-gray-200" />
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Usuario</p>
+                <p className="text-xs text-gray-500">usuario@correo.com</p>
               </div>
             </div>
-            <nav className="py-2 text-sm text-gray-700">
-              <Link href="/perfil" className="block px-4 py-2 hover:bg-gray-50">Mi perfil</Link>
-              <Link href="/mis-trabajos" className="block px-4 py-2 hover:bg-gray-50">Mis trabajos</Link>
-              <Link href="/ajustes" className="block px-4 py-2 hover:bg-gray-50">Ajustes</Link>
-              <hr className="my-2" />
-              <button className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50">Cerrar sesión</button>
-            </nav>
           </div>
-        )}
-      </header>
+          <nav className="py-2 text-sm text-gray-700">
+            <Link href="/perfil" className="block px-4 py-2 hover:bg-gray-50">Mi perfil</Link>
+            <Link href="/mis-trabajos" className="block px-4 py-2 hover:bg-gray-50">Mis trabajos</Link>
+            <Link href="/ajustes" className="block px-4 py-2 hover:bg-gray-50">Ajustes</Link>
+            <hr className="my-2" />
+            <button className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50">Cerrar sesión</button>
+          </nav>
+        </div>
+      )}
 
       <main className="w-full max-w-md mx-auto flex flex-col items-center space-y-14 mt-2">
         <div className="relative flex flex-col items-center">
-          <img src="/trabajador.svg" alt="Soy un manitas" className="w-28 h-28 rounded-full ring-2 ring-white shadow" />
+          <img src="/trabajador.svg" alt="Soy un manitas" className="w-28 h-28 rounded-full ring-2 ring-white shadow z-10" />
           <div className="absolute -bottom-6 bg-white px-3 py-1 rounded-full shadow text-sm font-semibold text-brand-red">
             ¡Soy un manitas!
           </div>
         </div>
 
         <div className="relative flex flex-col items-center mt-10">
-          <img src="/cliente.svg" alt="Necesito un manitas" className="w-28 h-28 rounded-full ring-2 ring-white shadow" />
+          <img src="/cliente.svg" alt="Necesito un manitas" className="w-28 h-28 rounded-full ring-2 ring-white shadow z-10" />
           <div className="absolute -bottom-6 bg-white px-3 py-1 rounded-full shadow text-sm font-semibold text-brand-red">
             ¡Necesito un manitas!
           </div>
